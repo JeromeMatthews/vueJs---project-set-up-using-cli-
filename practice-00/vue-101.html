@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script type="text/javascript" src="/vue-101.js" defer="true"></script>
+    <title>Vue 101 practice</title>
+</head>
+<body>
+    <div id="app">
+        {{ name }}
+
+        <button v-on:click="changeName">Change Name</button>    
+    <button v-on:click="changeBack">Change Back</button>
+    <hr>
+    <p>Give new name:</p>
+    <input type="text" v-model="newName" name="newName" id="newName">
+   <button @click="addNewName">Add New Name</button>
+    
+<hr>
+        <ul>
+            <li v-for=" el in classnames">{{ el }}</li>
+        </ul>
+
+    <p v-if="name== 'Jerome' ? false : true"> Name Updated!</p>
+    
+    <hr>
+    
+    <button v-on:click="addElement">New element</button>
+    
+    <ul>
+        <li v-for="el in elements"
+        
+        v-bind:style="{backgroundColor: getColor(el)}"
+        >An Element {{ el }}</li>
+    </ul>
+
+
+    
+    </div>
+
+    <hr>
+    <div id="app2">
+        <p>Another Vue Instance</p>
+        <p>{{ output }}</p>
+
+        <hr>
+        <app-component @usrclicked="usrWasclicked($event)" :username="'Noble'"></app-component>
+        <hr>
+        <app-component :username="'Jeremy'"></app-component>
+
+    </div>   
+
+
+    
+</body>
+</html>

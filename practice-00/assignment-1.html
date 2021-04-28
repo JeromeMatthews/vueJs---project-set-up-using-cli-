@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/vue@2/dist/vue.js"></script>
+    <script src="assignment-1.js" type="text/javascript" defer="true"></script>
+    <title>Vue101 assignment - 1</title>
+</head>
+<body>
+    <div id="app">
+
+        <input type="text" v-model="hobby" id="hobby">
+        <button type="button" @click="addHobby">Add New Hobby</button>
+
+        <hr>
+        <label for="show hobbies">Click see all hobbies</label>
+        <p>Number of Hobbies: {{ hobbies.length }}</p>
+        <button type="button" @click="showHobbies">Show all Hobbies</button>
+       
+        <hr>
+
+        <app-comp v-for="h in hobbies" 
+        v-bind:hobby="h"
+        @itemdeleted="deletedHobby($event)"
+        ></app-comp>
+
+  
+         <p v-if="itemDeleted == true"> Hobby deleted! </p> 
+        
+    
+
+    </div>
+
+
+</body>
+</html>
